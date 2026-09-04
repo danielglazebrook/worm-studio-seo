@@ -1,7 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Text from "@/components/fundations/elements/Text.astro";
-import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Container from "@/components/ui/Container.astro";
 ---
 
 <Layout
@@ -9,41 +8,21 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
   description="Get in touch with Worm Studio about SEO, GEO, or AEO for your brand."
   path="/contact-us"
 >
-  <Wrapper variant="standard" class="pb-8 pt-40 lg:pt-56">
-    <div class="grid grid-cols-1 lg:grid-cols-4 items-start gap-y-8">
-      <Text
-        tag="h1"
-        variant="displayLG"
-        class="font-semibold leading-snug tracking-tighter lg:col-span-2 text-base-900 dark:text-white lg:col-start-3"
-      >
-        Let's get you found — everywhere search happens.
-      </Text>
-      <Text
-        tag="p"
-        variant="textLG"
-        class="lg:col-start-3 lg:col-span-2 dark:text-white"
-      >
+  <Container grid class="pt-20 pb-24">
+    <div class="col-span-12 md:col-span-8">
+      <h1 class="font-display text-4xl md:text-5xl font-semibold text-ink leading-tight">
+        Let's get you found - everywhere search happens.
+      </h1>
+    </div>
+    <div class="col-span-12 md:col-span-6 mt-8">
+      <p class="text-lg text-ink-muted">
         Whether you're an established brand losing visibility to AI search,
-        or starting fresh and want search built in from day one — we'd love
+        or starting fresh and want search built in from day one - we'd love
         to hear about it.
-      </Text>
+      </p>
+      <a href="mailto:hello@wormstudio.co.uk" class="inline-block mt-6 text-xl font-display text-gold-deep underline decoration-2 underline-offset-4">
+        hello@wormstudio.co.uk
+      </a>
     </div>
-  </Wrapper>
-
-  <Wrapper variant="standard" class="py-12 lg:py-24">
-    <div class="grid grid-cols-1 lg:grid-cols-4 items-start gap-y-8">
-      <div class="lg:col-start-3 lg:col-span-2 flex flex-col gap-2">
-        <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">Email</Text>
-        <a href="mailto:hello@wormstudio.co.uk" class="text-base-900 dark:text-white text-lg">
-          hello@wormstudio.co.uk
-        </a>
-      </div>
-    </div>
-  </Wrapper>
-
-  <!--
-    TODO: replace with a real contact form when ready. A simple mailto link
-    ships correctly today with zero moving parts — a form needs a backend
-    (e.g. Formspree, or an Astro API route) before it's worth adding.
-  -->
+  </Container>
 </Layout>

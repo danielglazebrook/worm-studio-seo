@@ -1,83 +1,36 @@
 ---
-// Foundations
-import Text from "@/components/fundations/elements/Text.astro";
-import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Container from "@/components/ui/Container.astro";
 
-// IMPORTANT: leave this array empty until you have real, honest results to
-// put here. Shipping fabricated case studies is exactly the "100+ projects"
-// placeholder-stats problem we already fixed on the homepage — don't
-// reintroduce it here. Add entries in this shape once you have them:
-//
-// {
-//   year: "2026",
-//   client: "Client or project name",
-//   title: "What the engagement was",
-//   result: "The specific, honest outcome — a real number if you have one",
-//   category: "e.g. E-commerce, SaaS",
-// }
-const caseStudies: Array<{
-  year: string;
-  client: string;
-  title: string;
-  result: string;
-  category: string;
-}> = [];
+// Leave empty until real results exist - fabricated case studies would
+// repeat the exact placeholder-stats problem this site already fixed once.
+const caseStudies: Array<{ year: string; title: string; result: string }> = [];
 ---
 
-<section class="scroll-mt-32" id="work">
-  <Wrapper variant="standard" class="py-12 lg:py-24">
-    <div class="grid grid-cols-1 lg:grid-cols-4 items-start">
-      <div class="lg:col-start-2">
-        <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300"
-          >Work
-          <br />
-          2026 &mdash; Now</Text
-        >
-      </div>
-      <Text
-        tag="h2"
-        variant="textXL"
-        class="font-semibold leading-snug text-left tracking-tighter lg:col-span-2 text-base-900 dark:text-white"
-      >
-        Work
-      </Text>
+<section id="work" class="scroll-mt-24 py-16 md:py-24 border-t border-line">
+  <Container grid>
+    <div class="col-span-12 md:col-span-3">
+      <h2 class="font-display text-2xl font-semibold text-ink">Work</h2>
     </div>
-
-    {
-      caseStudies.length > 0 ? (
-        <div class="flex flex-col gap-12 mt-8">
-          {caseStudies.map((project) => (
-            <article class="py-12 border-t border-base-200 dark:border-base-800">
-              <div class="grid grid-cols-1 gap-4 lg:grid-cols-4 items-start">
-                <Text tag="p" variant="textXS" class="text-base-600 dark:text-base-300 uppercase">
-                  {project.year}
-                </Text>
-                <Text tag="h3" variant="displaySM" class="text-base-900 dark:text-white leading-tight font-semibold">
-                  {project.title}
-                </Text>
-                <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
-                  {project.result}
-                </Text>
-                <Text tag="p" variant="textXS" class="text-base-600 dark:text-base-300 uppercase lg:ml-auto lg:col-start-4">
-                  {project.category}
-                </Text>
+    <div class="col-span-12 md:col-span-9">
+      {
+        caseStudies.length > 0 ? (
+          <div class="flex flex-col">
+            {caseStudies.map((cs) => (
+              <div class="py-6 border-b border-line first:pt-0">
+                <p class="text-xs text-ink-muted">{cs.year}</p>
+                <h3 class="font-display text-lg font-medium text-ink mt-1">{cs.title}</h3>
+                <p class="text-ink-muted mt-1">{cs.result}</p>
               </div>
-            </article>
-          ))}
-        </div>
-      ) : (
-        <div class="mt-12 py-12 border-t border-base-200 dark:border-base-800">
-          <Text
-            tag="p"
-            variant="textLG"
-            class="text-base-600 dark:text-base-300 max-w-xl"
-          >
+            ))}
+          </div>
+        ) : (
+          <p class="text-lg text-ink-muted max-w-prose">
             We're documenting our own AI-search visibility work in real time
-            &mdash; first write-up coming soon. In the meantime, the search
-            traffic and AI citations on this page are the live proof.
-          </Text>
-        </div>
-      )
-    }
-  </Wrapper>
+            - first write-up coming soon. In the meantime, the fact you can
+            find this page at all is the live proof.
+          </p>
+        )
+      }
+    </div>
+  </Container>
 </section>

@@ -1,0 +1,55 @@
+---
+import Container from "@/components/ui/Container.astro";
+
+const services = [
+  {
+    name: "Technical SEO",
+    description:
+      "The groundwork - core web vitals, site architecture, structured data - done properly so nothing holds your rankings back.",
+  },
+  {
+    name: "GEO",
+    description:
+      "Generative Engine Optimisation. Getting your brand genuinely cited and recommended when people ask AI tools for recommendations - because the content is worth citing, not because of a trick.",
+  },
+  {
+    name: "AEO",
+    description:
+      "Answer Engine Optimisation. Structuring what you've already said well so search engines and AI assistants can actually find and use it.",
+  },
+  {
+    name: "Writing & Content",
+    description:
+      "The foundation the above depends on. Product pages, guides, and brand content written properly - templated, keyword-stuffed content doesn't rank or get cited nearly as well.",
+  },
+  {
+    name: "Shopify Development",
+    description:
+      "For e-commerce clients: the technical execution can happen in-house too, on the platform we know inside out. Official Shopify Partner.",
+  },
+];
+---
+
+<section id="approach" class="scroll-mt-24 py-16 md:py-24 border-t border-line">
+  <Container grid>
+    <div class="col-span-12 md:col-span-3">
+      <h2 class="font-display text-2xl font-semibold text-ink">What we do</h2>
+    </div>
+    <div class="col-span-12 md:col-span-9">
+      <dl class="flex flex-col">
+        {
+          services.map((service) => (
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-x-6 py-6 border-b border-line first:pt-0">
+              <dt class="md:col-span-3 font-display text-lg font-medium text-ink">
+                {service.name}
+              </dt>
+              <dd class="md:col-span-9 text-ink-muted mt-2 md:mt-0">
+                {service.description}
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </Container>
+</section>

@@ -1,70 +1,38 @@
 ---
 import { getCollection } from "astro:content";
-// Foundations
-import Text from "@/components/fundations/elements/Text.astro";
-import Wrapper from "@/components/fundations/containers/Wrapper.astro";
-// Icons
-import ArrowRight from "@/components/fundations/icons/ArrowRight.astro";
+import Container from "@/components/ui/Container.astro";
 
 const allPosts = await getCollection("blog", ({ data }) => !data.draft);
-const posts = allPosts
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
+const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
 ---
 
-<section class="scroll-mt-32" id="blog">
-  <Wrapper variant="standard" class="py-12 lg:py-24">
-    <div class="grid grid-cols-1 lg:grid-cols-4 items-start">
-      <div class="lg:col-start-2">
-        <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
-          Blog
-          <br />
-          Latest writing
-        </Text>
-      </div>
-      <Text
-        tag="h2"
-        variant="textXL"
-        class="font-semibold leading-snug tracking-tighter lg:col-span-2 text-base-900 dark:text-white"
-      >
-        Blog
-      </Text>
+<section id="blog" class="scroll-mt-24 py-16 md:py-24 border-t border-line">
+  <Container grid>
+    <div class="col-span-12 md:col-span-3">
+      <h2 class="font-display text-2xl font-semibold text-ink">Blog</h2>
     </div>
-
-    {
-      posts.length > 0 ? (
-        <div class="flex flex-col gap-12 mt-12">
-          {posts.map((post) => (
-            <article class="py-12 border-t border-base-200 dark:border-base-800">
-              <div class="grid grid-cols-1 gap-4 lg:grid-cols-4 items-start">
-                <Text tag="p" variant="textXS" class="text-base-600 dark:text-base-300 uppercase">
-                  {post.data.pubDate.toLocaleDateString("en-GB", { year: "numeric", month: "short" })} — {post.data.category}
-                </Text>
-                <Text tag="h3" variant="textLG" class="text-base-900 dark:text-white leading-tight font-semibold">
+    <div class="col-span-12 md:col-span-9">
+      {
+        posts.length > 0 ? (
+          <div class="flex flex-col">
+            {posts.map((post) => (
+              <a href={`/blog/${post.slug}`} class="group grid grid-cols-1 md:grid-cols-12 gap-x-6 py-6 border-b border-line first:pt-0">
+                <p class="md:col-span-3 text-xs text-ink-muted">
+                  {post.data.pubDate.toLocaleDateString("en-GB", { year: "numeric", month: "short" })}
+                </p>
+                <h3 class="md:col-span-6 font-display text-lg font-medium text-ink group-hover:text-gold-deep transition-colors">
                   {post.data.title}
-                </Text>
-                <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
-                  {post.data.description}
-                </Text>
-                <a
-                  href={`/blog/${post.slug}`}
-                  class="lg:ml-auto text-base-900 dark:text-white hover:text-accent-600 transition"
-                >
-                  <span class="sr-only">Read {post.data.title}</span>
-                  <ArrowRight size="sm" />
-                </a>
-              </div>
-            </article>
-          ))}
-        </div>
-      ) : (
-        <div class="mt-12 py-12 border-t border-base-200 dark:border-base-800">
-          <Text tag="p" variant="textLG" class="text-base-600 dark:text-base-300 max-w-xl">
-            First post is on its way &mdash; we're documenting our own
-            AI-search visibility experiment as it happens.
-          </Text>
-        </div>
-      )
-    }
-  </Wrapper>
+                </h3>
+                <p class="md:col-span-3 text-sm text-ink-muted mt-2 md:mt-0">{post.data.category}</p>
+              </a>
+            ))}
+          </div>
+        ) : (
+          <p class="text-lg text-ink-muted max-w-prose">
+            First post is on its way - we're documenting our own AI-search visibility experiment as it happens.
+          </p>
+        )
+      }
+    </div>
+  </Container>
 </section>

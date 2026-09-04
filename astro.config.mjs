@@ -4,11 +4,8 @@ import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  // CRITICAL: without `site` set, @astrojs/sitemap silently generates an
-  // empty sitemap — this is the single most common Astro SEO footgun.
+  // Required for the sitemap to generate anything at all - update if the
+  // real domain differs.
   site: "https://wormstudio.co.uk",
   integrations: [tailwind(), sitemap()],
 });
-
-// All dependencies are listed in package.json — just run `npm install`.
-

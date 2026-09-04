@@ -1,0 +1,21 @@
+---
+interface Props {
+  href?: string;
+  variant?: "solid" | "outline" | "text";
+  class?: string;
+}
+const { href, variant = "solid", class: extraClass = "" } = Astro.props;
+const Tag = href ? "a" : "button";
+
+const base =
+  "inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium transition-colors rounded-sm";
+const variants = {
+  solid: "bg-ink text-paper hover:bg-gold-deep",
+  outline: "border border-ink text-ink hover:border-gold-deep hover:text-gold-deep",
+  text: "text-ink underline decoration-gold decoration-2 underline-offset-4 hover:text-gold-deep px-0 py-0",
+};
+---
+
+<Tag href={href} class:list={[base, variants[variant], extraClass]}>
+  <slot />
+</Tag>

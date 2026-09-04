@@ -1,55 +1,42 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
-import Text from "@/components/fundations/elements/Text.astro";
-import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Container from "@/components/ui/Container.astro";
 
 const allPosts = await getCollection("blog", ({ data }) => !data.draft);
-const posts = allPosts.sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <Layout
   title="Blog"
-  description="Notes on SEO, GEO, and AEO — including our own AI-search visibility experiment, documented as it happens."
+  description="Notes on SEO, GEO, and AEO - including our own AI-search visibility experiment, documented as it happens."
   path="/blog"
 >
-  <Wrapper variant="standard" class="pb-8 pt-40 lg:pt-56">
-    <Text
-      tag="h1"
-      variant="displayLG"
-      class="font-semibold leading-snug tracking-tighter text-base-900 dark:text-white"
-    >
-      Blog
-    </Text>
-  </Wrapper>
+  <Container grid class="pt-20 pb-8">
+    <h1 class="col-span-12 font-display text-4xl md:text-5xl font-semibold text-ink">Blog</h1>
+  </Container>
 
-  <Wrapper variant="standard" class="py-12 lg:py-24">
-    {
-      posts.length > 0 ? (
-        <div class="flex flex-col gap-12">
-          {posts.map((post) => (
-            <article class="py-12 border-t border-base-200 dark:border-base-800">
-              <a href={`/blog/${post.slug}`} class="grid grid-cols-1 gap-4 lg:grid-cols-4 items-start group">
-                <Text tag="p" variant="textXS" class="text-base-600 dark:text-base-300 uppercase">
+  <Container grid class="py-12">
+    <div class="col-span-12 md:col-span-9 md:col-start-4">
+      {
+        posts.length > 0 ? (
+          <div class="flex flex-col">
+            {posts.map((post) => (
+              <a href={`/blog/${post.slug}`} class="group grid grid-cols-12 gap-x-6 py-8 border-b border-line first:pt-0">
+                <p class="col-span-3 text-xs text-ink-muted">
                   {post.data.pubDate.toLocaleDateString("en-GB", { year: "numeric", month: "short", day: "numeric" })}
-                </Text>
-                <Text tag="h2" variant="displaySM" class="text-base-900 dark:text-white leading-tight font-semibold group-hover:text-accent-600 transition lg:col-span-2">
+                </p>
+                <h2 class="col-span-9 font-display text-2xl font-medium text-ink group-hover:text-gold-deep transition-colors">
                   {post.data.title}
-                </Text>
-                <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
-                  {post.data.description}
-                </Text>
+                </h2>
+                <p class="col-span-9 col-start-4 text-ink-muted mt-2">{post.data.description}</p>
               </a>
-            </article>
-          ))}
-        </div>
-      ) : (
-        <Text tag="p" variant="textLG" class="text-base-600 dark:text-base-300 max-w-xl">
-          First post coming soon.
-        </Text>
-      )
-    }
-  </Wrapper>
+            ))}
+          </div>
+        ) : (
+          <p class="text-lg text-ink-muted">First post coming soon.</p>
+        )
+      }
+    </div>
+  </Container>
 </Layout>

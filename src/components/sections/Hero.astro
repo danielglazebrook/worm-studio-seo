@@ -1,44 +1,36 @@
 ---
-// Foundations
-import Text from "@/components/fundations/elements/Text.astro";
-import Button from "@/components/fundations/elements/Button.astro";
-import Wrapper from "@/components/fundations/containers/Wrapper.astro";
-import ArrowRight from "@/components/fundations/icons/ArrowRight.astro";
+import Container from "@/components/ui/Container.astro";
+import Button from "@/components/ui/Button.astro";
 ---
 
-<section>
-  <Wrapper variant="standard" class="pb-8 pt-40 lg:pt-80">
-    <div class="grid grid-cols-1 lg:grid-cols-4 items-start gap-y-8">
-      <Text
-        tag="h1"
-        variant="displayLG"
-        class="font-semibold leading-snug text-left tracking-tighter lg:col-span-2 text-base-900 dark:text-white lg:col-start-3"
-      >
-        SEO, GEO & AEO done properly, never automated.
-      </Text>
-      <Text
-        tag="p"
-        variant="textLG"
-        class="lg:col-start-3 dark:text-white lg:col-span-2"
-      >
-        We're a search visibility agency. Search isn't just Google anymore
-        &mdash; people are asking ChatGPT and Perplexity for recommendations
-        too, and we get you found in both. The difference: we don't chase
-        that with generic, templated content stuffed for algorithms. Every
-        piece is written and structured properly first, because genuinely
-        good content is what search engines and AI models actually favour
-        &mdash; then we handle the technical side (schema, structure,
-        performance) that makes sure it gets picked up.
-      </Text>
-      <div class="lg:col-start-3 lg:col-span-2 flex gap-4 mt-4">
-        <Button isLink variant="default" size="md" href="#work">
-          See how we work
-        </Button>
-        <Button isLink variant="muted" size="md" gap="xs" href="/contact-us">
-          Get in touch
-          <ArrowRight slot="right-icon" size="sm" />
-        </Button>
+<section class="relative overflow-hidden">
+  <!-- Signature device: visible grid guides, only here, quiet everywhere else -->
+  <div class="absolute inset-0 pointer-events-none">
+    <Container grid class="h-full">
+      {Array.from({ length: 12 }).map(() => (
+        <div class="col-span-1 border-r border-line/60 h-full" />
+      ))}
+    </Container>
+  </div>
+
+  <Container grid class="relative py-24 md:py-36">
+    <div class="col-span-12 md:col-span-8">
+      <h1 class="font-display font-semibold text-4xl md:text-6xl leading-tight tracking-tight text-ink">
+        SEO, GEO & AEO - done properly, never automated.
+      </h1>
+    </div>
+    <div class="col-span-12 md:col-span-6 mt-8">
+      <p class="text-lg text-ink-muted">
+        A UK search visibility agency. Search isn't just Google anymore -
+        people ask AI tools like ChatGPT for recommendations too, and we get
+        you found in both. Every piece of content is written and structured
+        properly first, because that's what search engines and AI models
+        actually favour.
+      </p>
+      <div class="flex gap-4 mt-8">
+        <Button href="/#work" variant="solid">See how we work</Button>
+        <Button href="/contact-us" variant="outline">Get in touch</Button>
       </div>
     </div>
-  </Wrapper>
+  </Container>
 </section>

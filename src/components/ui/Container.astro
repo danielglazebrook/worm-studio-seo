@@ -1,0 +1,17 @@
+---
+interface Props {
+  class?: string;
+  grid?: boolean;
+}
+const { class: extraClass = "", grid = false } = Astro.props;
+---
+
+<div
+  class:list={[
+    "mx-auto max-w-[1400px] px-6 md:px-10",
+    grid && "grid grid-cols-12 gap-x-4 md:gap-x-6",
+    extraClass,
+  ]}
+>
+  <slot />
+</div>

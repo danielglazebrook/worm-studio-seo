@@ -1,0 +1,24 @@
+---
+const SITE_URL = "https://wormstudio.co.uk";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": `${SITE_URL}/#organization`,
+  name: "Worm Studio",
+  url: SITE_URL,
+  description:
+    "SEO, GEO & AEO agency helping brands get found in Google and in AI search tools like ChatGPT - through genuinely well-written, well-structured content.",
+  address: { "@type": "PostalAddress", addressLocality: "Northampton", addressCountry: "GB" },
+  areaServed: { "@type": "Country", name: "United Kingdom" },
+  knowsAbout: [
+    "Search Engine Optimisation",
+    "Generative Engine Optimisation",
+    "Answer Engine Optimisation",
+    "Technical SEO",
+    "Shopify Development",
+  ],
+} as const;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

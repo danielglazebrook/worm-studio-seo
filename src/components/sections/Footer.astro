@@ -1,27 +1,15 @@
 ---
-// Assets
-import Logo from "@/components/assets/Logo.astro";
-// Foundations
-import Text from "@/components/fundations/elements/Text.astro";
-import Button from "@/components/fundations/elements/Button.astro";
-import Wrapper from "@/components/fundations/containers/Wrapper.astro";
-const links = [
-  { href: "#_", text: "LinkedIn" },
-  { href: "#_", text: "Arena" },
-  { href: "#_", text: "GitHub" },
-];
+import Container from "@/components/ui/Container.astro";
 const year = new Date().getFullYear();
 ---
 
-<footer>
-  <Wrapper variant="standard" class="py-2">
-    <div class="grid grid-cols-2 lg:grid-cols-4 items-start">
-      <div
-        class="flex items-center gap-2 text-base-600 dark:text-base-300 text-xs tracking-tight"
-      >
-        <Logo />
-        Copyright {year}
-      </div>
+<footer class="border-t border-line mt-24">
+  <Container class="py-10 flex flex-col md:flex-row justify-between gap-4 text-sm text-ink-muted">
+    <p>Worm Studio Ltd - Northampton, England - {year}</p>
+    <div class="flex gap-6">
+      <a href="mailto:hello@wormstudio.co.uk" class="hover:text-gold-deep transition-colors">
+        hello@wormstudio.co.uk
+      </a>
     </div>
-  </Wrapper>
+  </Container>
 </footer>

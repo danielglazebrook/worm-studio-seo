@@ -1,118 +1,61 @@
 ---
-// Foundations
-import Text from "@/components/fundations/elements/Text.astro";
-import Button from "@/components/fundations/elements/Button.astro";
-import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Container from "@/components/ui/Container.astro";
+import Button from "@/components/ui/Button.astro";
 
-// Starting figures based on current UK market rates for SEO/GEO/AEO —
-// worth recalibrating once you've had a few real pricing conversations.
 const tiers = [
   {
     name: "Visibility Audit",
     price: "£750–£1,200",
     cadence: "one-time",
     description: "For brands who want to know exactly where they stand.",
-    features: [
-      "Full technical SEO audit",
-      "AI-search visibility check (ChatGPT, Perplexity, AI Overviews)",
-      "Structured data & schema review",
-      "Prioritised action plan",
-    ],
+    features: ["Full technical SEO audit", "AI-search visibility check", "Structured data & schema review", "Prioritised action plan"],
   },
   {
     name: "Growth Retainer",
     price: "£900–£1,800",
     cadence: "per month",
     description: "For brands ready to actively build visibility.",
-    features: [
-      "Everything in the Audit",
-      "Ongoing technical SEO implementation",
-      "GEO/AEO content structuring & optimisation",
-      "Monthly visibility reporting (Google + AI search)",
-    ],
+    features: ["Everything in the Audit", "Ongoing technical SEO implementation", "GEO/AEO content structuring", "Monthly visibility reporting"],
   },
   {
     name: "Full Build + Visibility",
     price: "Scoped",
     cadence: "project + retainer",
-    description:
-      "For brands building or rebuilding a Shopify store from the ground up, with search built in from day one.",
-    features: [
-      "Shopify design & development",
-      "SEO/GEO/AEO integrated throughout, not bolted on",
-      "Official Shopify Partner execution",
-      "Ongoing retainer available post-launch",
-    ],
+    description: "For brands building a Shopify store from the ground up, with search built in from day one.",
+    features: ["Shopify design & development", "SEO/GEO/AEO integrated throughout", "Official Shopify Partner execution", "Retainer available post-launch"],
   },
 ];
 ---
 
-<section class="scroll-mt-32" id="pricing">
-  <Wrapper variant="standard" class="py-12 lg:py-24">
-    <div class="grid grid-cols-1 lg:grid-cols-4 items-start">
-      <div class="lg:col-start-2">
-        <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
-          Pricing
-          <br />
-          Straightforward
-        </Text>
-      </div>
-      <Text
-        tag="h2"
-        variant="textXL"
-        class="font-semibold leading-snug tracking-tighter lg:col-span-2 text-base-900 dark:text-white"
-      >
-        Pricing
-      </Text>
+<section id="pricing" class="scroll-mt-24 py-16 md:py-24 border-t border-line">
+  <Container grid>
+    <div class="col-span-12 md:col-span-3">
+      <h2 class="font-display text-2xl font-semibold text-ink">Pricing</h2>
     </div>
-
-    <div class="flex flex-col gap-12 mt-12">
+    <div class="col-span-12 md:col-span-9 flex flex-col">
       {
         tiers.map((tier) => (
-          <article class="py-12 border-t border-base-200 dark:border-base-800">
-            <div class="grid grid-cols-1 gap-4 lg:grid-cols-4 items-start">
-              <div class="lg:col-span-1">
-                <Text
-                  tag="h3"
-                  variant="displaySM"
-                  class="text-base-900 dark:text-white leading-tight font-semibold"
-                >
-                  {tier.name}
-                </Text>
-                <Text
-                  tag="p"
-                  variant="textBase"
-                  class="text-base-600 dark:text-base-300 mt-2"
-                >
-                  {tier.price} <span class="text-xs">{tier.cadence}</span>
-                </Text>
-              </div>
-              <div class="lg:col-span-2">
-                <Text
-                  tag="p"
-                  variant="textSM"
-                  class="text-base-600 dark:text-base-300"
-                >
-                  {tier.description}
-                </Text>
-                <ul class="mt-4 flex flex-col gap-2">
-                  {tier.features.map((feature) => (
-                    <li class="text-sm text-base-600 dark:text-base-300 flex gap-2">
-                      <span aria-hidden="true">—</span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div class="lg:col-start-4 lg:ml-auto">
-                <Button isLink variant="muted" size="sm" href="/contact-us">
-                  Get started
-                </Button>
-              </div>
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-x-6 py-8 border-b border-line first:pt-0">
+            <div class="md:col-span-3">
+              <h3 class="font-display text-xl font-medium text-ink">{tier.name}</h3>
+              <p class="text-ink-muted mt-1">
+                {tier.price} <span class="text-xs">{tier.cadence}</span>
+              </p>
             </div>
-          </article>
+            <div class="md:col-span-6 mt-3 md:mt-0">
+              <p class="text-ink-muted">{tier.description}</p>
+              <ul class="mt-3 flex flex-col gap-1.5 text-sm text-ink-muted">
+                {tier.features.map((f) => (
+                  <li>- {f}</li>
+                ))}
+              </ul>
+            </div>
+            <div class="md:col-span-3 mt-4 md:mt-0 md:text-right">
+              <Button href="/contact-us" variant="text">Get started</Button>
+            </div>
+          </div>
         ))
       }
     </div>
-  </Wrapper>
+  </Container>
 </section>
