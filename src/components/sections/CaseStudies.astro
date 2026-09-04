@@ -1,0 +1,83 @@
+---
+// Foundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+// IMPORTANT: leave this array empty until you have real, honest results to
+// put here. Shipping fabricated case studies is exactly the "100+ projects"
+// placeholder-stats problem we already fixed on the homepage — don't
+// reintroduce it here. Add entries in this shape once you have them:
+//
+// {
+//   year: "2026",
+//   client: "Client or project name",
+//   title: "What the engagement was",
+//   result: "The specific, honest outcome — a real number if you have one",
+//   category: "e.g. E-commerce, SaaS",
+// }
+const caseStudies: Array<{
+  year: string;
+  client: string;
+  title: string;
+  result: string;
+  category: string;
+}> = [];
+---
+
+<section class="scroll-mt-32" id="work">
+  <Wrapper variant="standard" class="py-12 lg:py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-4 items-start">
+      <div class="lg:col-start-2">
+        <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300"
+          >Work
+          <br />
+          2026 &mdash; Now</Text
+        >
+      </div>
+      <Text
+        tag="h2"
+        variant="textXL"
+        class="font-semibold leading-snug text-left tracking-tighter lg:col-span-2 text-base-900 dark:text-white"
+      >
+        Work
+      </Text>
+    </div>
+
+    {
+      caseStudies.length > 0 ? (
+        <div class="flex flex-col gap-12 mt-8">
+          {caseStudies.map((project) => (
+            <article class="py-12 border-t border-base-200 dark:border-base-800">
+              <div class="grid grid-cols-1 gap-4 lg:grid-cols-4 items-start">
+                <Text tag="p" variant="textXS" class="text-base-600 dark:text-base-300 uppercase">
+                  {project.year}
+                </Text>
+                <Text tag="h3" variant="displaySM" class="text-base-900 dark:text-white leading-tight font-semibold">
+                  {project.title}
+                </Text>
+                <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
+                  {project.result}
+                </Text>
+                <Text tag="p" variant="textXS" class="text-base-600 dark:text-base-300 uppercase lg:ml-auto lg:col-start-4">
+                  {project.category}
+                </Text>
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="mt-12 py-12 border-t border-base-200 dark:border-base-800">
+          <Text
+            tag="p"
+            variant="textLG"
+            class="text-base-600 dark:text-base-300 max-w-xl"
+          >
+            We're documenting our own AI-search visibility work in real time
+            &mdash; first write-up coming soon. In the meantime, the search
+            traffic and AI citations on this page are the live proof.
+          </Text>
+        </div>
+      )
+    }
+  </Wrapper>
+</section>

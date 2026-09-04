@@ -1,0 +1,97 @@
+---
+// Foundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+// A genuine sequence, so numbering here is warranted (unlike a generic list).
+const process = [
+  {
+    step: "Week 1",
+    title: "Audit",
+    description:
+      "We assess your current visibility across traditional search and AI search — where you rank, where you're cited, and where you're invisible.",
+    category: "Discovery",
+  },
+  {
+    step: "Week 1–2",
+    title: "Strategy",
+    description:
+      "A prioritised plan: what to fix technically, what content needs restructuring, and where the highest-impact AI-visibility gaps are.",
+    category: "Planning",
+  },
+  {
+    step: "Ongoing",
+    title: "Implementation",
+    description:
+      "Technical SEO fixes, structured data, content restructuring, and GEO/AEO optimisation — built and shipped, not just recommended.",
+    category: "Execution",
+  },
+  {
+    step: "Ongoing",
+    title: "Monitor & Adapt",
+    description:
+      "AI search is moving fast. We track how your visibility shifts across Google, ChatGPT, and Perplexity, and adjust the strategy as the landscape changes.",
+    category: "Iteration",
+  },
+];
+---
+
+<section class="scroll-mt-32" id="process">
+  <Wrapper variant="standard" class="py-12 lg:py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-4 items-start">
+      <div class="lg:col-start-2">
+        <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
+          How We Work
+          <br />
+          Start to finish
+        </Text>
+      </div>
+      <Text
+        tag="h2"
+        variant="textXL"
+        class="font-semibold leading-snug tracking-tighter lg:col-span-2 text-base-900 dark:text-white"
+      >
+        Process
+      </Text>
+    </div>
+
+    <div class="flex flex-col gap-12 mt-12">
+      {
+        process.map((item, index) => (
+          <article class="py-12 border-t border-base-200 dark:border-base-800">
+            <div class="grid grid-cols-1 gap-4 lg:grid-cols-4 items-start">
+              <Text
+                tag="p"
+                variant="textXS"
+                class="text-base-600 dark:text-base-300 uppercase"
+              >
+                {String(index + 1).padStart(2, "0")} — {item.step}
+              </Text>
+              <Text
+                tag="h3"
+                variant="textLG"
+                class="text-base-900 dark:text-white leading-tight font-semibold"
+              >
+                {item.title}
+              </Text>
+              <Text
+                tag="p"
+                variant="textSM"
+                class="text-base-600 dark:text-base-300"
+              >
+                {item.description}
+              </Text>
+              <Text
+                tag="p"
+                variant="textXS"
+                class="text-base-600 dark:text-base-300 uppercase lg:ml-auto lg:col-start-4"
+              >
+                {item.category}
+              </Text>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>

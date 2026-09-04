@@ -1,0 +1,73 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const SITE_URL = "https://wormstudio.co.uk";
+
+// Article schema — this is the piece that makes an individual post eligible
+// to be cited directly by AI search tools, not just indexed by Google.
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.pubDate.toISOString(),
+  dateModified: (post.data.updatedDate ?? post.data.pubDate).toISOString(),
+  author: {
+    "@type": "Organization",
+    name: "Worm Studio",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Worm Studio",
+    url: SITE_URL,
+  },
+  mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+};
+---
+
+<Layout
+  title={post.data.title}
+  description={post.data.description}
+  path={`/blog/${post.slug}`}
+  type="article"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
+  <Wrapper variant="prose" class="pb-8 pt-40 lg:pt-56">
+    <Text tag="p" variant="textXS" class="text-base-600 dark:text-base-300 uppercase">
+      {post.data.pubDate.toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" })} — {post.data.category}
+    </Text>
+    <Text
+      tag="h1"
+      variant="displayMD"
+      class="font-semibold leading-snug tracking-tighter text-base-900 dark:text-white mt-4"
+    >
+      {post.data.title}
+    </Text>
+  </Wrapper>
+
+  <Wrapper
+    variant="prose"
+    class="py-12 prose prose-neutral dark:prose-invert prose-headings:tracking-tight prose-headings:font-semibold max-w-3xl"
+  >
+    <Content />
+  </Wrapper>
+</Layout>

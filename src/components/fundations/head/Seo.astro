@@ -1,0 +1,52 @@
+---
+// Dynamic per-page SEO. Every page passes its own title/description —
+// nothing should ever ship with the old placeholder copy live.
+export interface Props {
+  title: string;
+  description: string;
+  path?: string; // e.g. "/pricing" — defaults to current URL path
+  ogImage?: string; // absolute or root-relative path to a 1200x630 image
+  type?: "website" | "article";
+  noindex?: boolean;
+}
+
+const SITE_NAME = "Worm Studio";
+const SITE_URL = "https://wormstudio.co.uk"; // update if this ever changes
+
+const {
+  title,
+  description,
+  path = Astro.url.pathname,
+  ogImage = "/og-default.jpg",
+  type = "website",
+  noindex = false,
+} = Astro.props;
+
+const canonicalUrl = new URL(path, SITE_URL).toString();
+const absoluteOgImage = new URL(ogImage, SITE_URL).toString();
+const fullTitle = path === "/" ? title : `${title} — ${SITE_NAME}`;
+---
+
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<!-- Open Graph -->
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={absoluteOgImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={`${SITE_NAME} — ${title}`} />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:site_name" content={SITE_NAME} />
+<meta property="og:type" content={type} />
+<meta property="og:locale" content="en_GB" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={absoluteOgImage} />

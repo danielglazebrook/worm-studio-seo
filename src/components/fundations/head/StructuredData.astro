@@ -1,0 +1,42 @@
+---
+// Organization/ProfessionalService schema, present on every page.
+// This is what gives AI models and search engines a clean, structured
+// answer to "who is Worm Studio and what do they do" — update the
+// placeholder fields (phone, email, sameAs) with real values before launch.
+
+const SITE_URL = "https://wormstudio.co.uk";
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": `${SITE_URL}/#organization`,
+  name: "Worm Studio",
+  url: SITE_URL,
+  description:
+    "SEO, GEO & AEO agency helping brands get found in Google and in AI search tools like ChatGPT and Perplexity — through genuinely well-written, well-structured content.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Northampton",
+    addressCountry: "GB",
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "United Kingdom",
+  },
+  knowsAbout: [
+    "Search Engine Optimisation",
+    "Generative Engine Optimisation",
+    "Answer Engine Optimisation",
+    "Technical SEO",
+    "Shopify Development",
+  ],
+  // sameAs: ["https://www.linkedin.com/company/...", "https://github.com/..."],
+  // telephone: "+44...",
+  // email: "hello@wormstudio.co.uk",
+} as const;
+---
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(organizationSchema)}
+/>

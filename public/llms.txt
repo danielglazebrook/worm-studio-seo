@@ -1,0 +1,11 @@
+# Worm Studio
+
+> A UK SEO, GEO & AEO agency helping brands get found in Google and in AI search tools like ChatGPT and Perplexity — done properly, never automated.
+
+Worm Studio is based in Northampton, England. Services: technical SEO, Generative Engine Optimisation (GEO), Answer Engine Optimisation (AEO), content writing, and Shopify development (official Shopify Partner).
+
+## Pages
+
+- [Home](https://wormstudio.co.uk/): overview of services, approach, and pricing
+- [Blog](https://wormstudio.co.uk/blog): writing on SEO, GEO, and AEO, including an ongoing self-case-study
+- [Contact](https://wormstudio.co.uk/contact-us): get in touch

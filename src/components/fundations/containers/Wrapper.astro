@@ -1,0 +1,20 @@
+---
+interface Props {
+  variant?: "standard" | "prose";
+  class?: string;
+}
+const { variant = "standard", class: extraClass = "" } = Astro.props;
+
+const variantClasses = {
+  standard: "max-w-screen 2xl:max-w-[90rem] mx-auto px-8",
+  // Narrower, readable measure for long-form content (blog posts) —
+  // was referenced elsewhere in the template but never defined.
+  prose: "max-w-3xl mx-auto px-8",
+};
+
+const classes = `${variantClasses[variant]} ${extraClass}`.trim();
+---
+
+<div class={classes}>
+  <slot />
+</div>
