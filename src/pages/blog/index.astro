@@ -23,13 +23,21 @@ const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.
           <div class="flex flex-col">
             {posts.map((post) => (
               <a href={`/blog/${post.slug}`} class="group grid grid-cols-12 gap-x-6 py-8 border-b border-line first:pt-0">
-                <p class="col-span-3 text-xs text-ink-muted">
-                  {post.data.pubDate.toLocaleDateString("en-GB", { year: "numeric", month: "short", day: "numeric" })}
-                </p>
-                <h2 class="col-span-9 font-display text-2xl font-medium text-ink group-hover:text-gold-deep transition-colors">
+                <div class="col-span-12 flex gap-x-6 md:col-span-3 md:block md:gap-0">
+                  <p class="text-xs text-ink-muted">
+                    {post.data.pubDate.toLocaleDateString("en-GB", { year: "numeric", month: "short", day: "numeric" })}
+                  </p>
+                  <p class="text-xs text-ink-muted">
+                    {post.data.author}
+                  </p>
+                  <p class="text-xs text-ink-muted">
+                    {post.data.category}
+                  </p>
+                </div>
+                <h2 class="col-span-12 md:col-span-9 font-display text-2xl font-medium text-ink group-hover:text-gold-deep transition-colors">
                   {post.data.title}
                 </h2>
-                <p class="col-span-9 col-start-4 text-ink-muted mt-2">{post.data.description}</p>
+                <p class="col-span-12 col-start-1 md:col-span-9 md:col-start-4 text-ink-muted mt-2">{post.data.description}</p>
               </a>
             ))}
           </div>

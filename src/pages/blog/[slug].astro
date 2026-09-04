@@ -20,7 +20,7 @@ const articleSchema = {
   description: post.data.description,
   datePublished: post.data.pubDate.toISOString(),
   dateModified: (post.data.updatedDate ?? post.data.pubDate).toISOString(),
-  author: { "@type": "Organization", name: "Worm Studio" },
+  author: { "@type": "Person", name: post.data.author },
   publisher: { "@type": "Organization", name: "Worm Studio", url: SITE_URL },
   mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
 };
@@ -32,7 +32,7 @@ const articleSchema = {
   <Container grid class="pt-20 pb-8">
     <div class="col-span-12 md:col-span-8 md:col-start-3">
       <p class="text-xs text-ink-muted uppercase tracking-wide">
-        {post.data.pubDate.toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" })} · {post.data.category}
+        {post.data.pubDate.toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" })} · {post.data.category} · {post.data.author}
       </p>
       <h1 class="font-display text-3xl md:text-5xl font-semibold text-ink mt-3 leading-tight">
         {post.data.title}

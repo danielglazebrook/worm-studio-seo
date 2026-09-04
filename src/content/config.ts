@@ -8,6 +8,7 @@ const blog = defineCollection({
     pubDate: z.date(),
     updatedDate: z.date().optional(),
     category: z.string().default("SEO & AI Search"),
+    author: z.string().default("Worm Studio"),
     draft: z.boolean().default(false),
   }),
 });
