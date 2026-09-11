@@ -22,14 +22,11 @@ const personSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
   <Container grid class="pt-20 pb-24">
-    <div class="col-span-12 md:col-span-8">
+    <div class="col-span-12 md:col-span-8 mt-8">
       <p class="text-sm text-ink-muted uppercase tracking-wide">Words from our founder</p>
       <h1 class="font-display text-4xl md:text-5xl font-semibold text-ink leading-tight mt-3">
         Worm Studio is a new agency, but its expertise behind it aren't.
       </h1>
-    </div>
-
-    <div class="col-span-12 md:col-span-6 mt-8">
       <p class="text-lg text-ink-muted">
         Worm Studio is new. I'm not. I've been working in SEO and digital marketing since 2012,
         and the creative industries for longer than that. Worm is the first
@@ -80,5 +77,10 @@ const personSchema = {
         <Button href="/blog/starting-from-zero-ai-search-baseline" variant="text">Read the first case study</Button>
       </div>
     </div>
+
+    <div class="col-span-12 md:col-span-4 mt-8 hidden md:block col-start-9">
+      <img class="col-span-2 mt-3 mb-3" src="/assets/images/daniel-glazebrook-founder.png" alt="Profile picture of Worm Studio founder - Daniel Glazebrook">
+    </div>
+
   </Container>
 </Layout>
