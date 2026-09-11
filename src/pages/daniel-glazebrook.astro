@@ -1,0 +1,85 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/ui/Container.astro";
+import Button from "@/components/ui/Button.astro";
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Daniel Glazebrook",
+  jobTitle: "Founder, Worm Studio",
+  worksFor: { "@type": "Organization", name: "Worm Studio" },
+  url: "https://wormstudio.co.uk/daniel-glazebrook",
+  // sameAs: ["https://www.linkedin.com/in/...", ...] - add real profile links here
+};
+---
+
+<Layout
+  title="Daniel Glazebrook"
+  description="About Worm Studio's founder, Daniel Glazebrook, and his background in SEO and web development."
+  path="/daniel-glazebrook"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
+  <Container grid class="pt-20 pb-24">
+    <div class="col-span-12 md:col-span-8">
+      <p class="text-sm text-ink-muted uppercase tracking-wide">Words from our founder</p>
+      <h1 class="font-display text-4xl md:text-5xl font-semibold text-ink leading-tight mt-3">
+        Worm Studio is a new agency, but its expertise isn't.
+      </h1>
+    </div>
+
+    <div class="col-span-12 md:col-span-6 mt-8">
+      <p class="text-lg text-ink-muted">
+        Worm Studio is new. I'm not - I've been working in SEO since 2012,
+        and web development for longer than that. This studio is the first
+        time I've put both under one name, not the first time I've done the
+        work.
+      </p>
+
+      <p class="text-lg text-ink-muted mt-6">
+        I've watched search change more in the last two years than in the
+        decade before it. Google went from ten blue links to AI Overviews.
+        People stopped typing keywords into a search box and started asking
+        ChatGPT a real question instead. Most of what I learned about
+        ranking a page in 2012 still matters - structure, clarity, actually
+        answering the question - but the destination changed, and a lot of
+        agencies haven't caught up yet.
+      </p>
+
+      <blockquote class="border-l-2 border-gold pl-4 mt-6 text-ink font-display text-xl italic">
+        "Worm Studio is my first independent studio, but it's not my first
+        SEO project."
+      </blockquote>
+
+      <p class="text-lg text-ink-muted mt-6">
+        I studied graphic design at the University of Brighton, then spent
+        nine years as a full-stack web developer - mostly at small design
+        agencies, the kind where there's no separate team for every job.
+        You end up doing a bit of everything: design, build, content,
+        client calls, and the SEO that made the site actually worth
+        building in the first place. SEO was the constant through all of
+        it - the part I kept coming back to, and the part I never stopped
+        being genuinely into.
+      </p>
+
+      <p class="text-lg text-ink-muted mt-6">
+        That hands-on, involved-in-everything approach is the actual
+        foundation <a href="/#approach" class="text-ink underline decoration-gold decoration-2 underline-offset-4 hover:text-gold-deep">Worm Studio's approach</a> is built on - not a pivot into something
+        new, just the same way of working, applied to where search is now.
+      </p>
+
+      <p class="text-lg text-ink-muted mt-6">
+        It's also why the first thing I did with this studio was check
+        where it actually stood, in public, rather than just claim
+        expertise - <a href="/blog/starting-from-zero-ai-search-baseline" class="text-ink underline decoration-gold decoration-2 underline-offset-4 hover:text-gold-deep">starting from zero</a> and documenting it honestly, results included.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-4">
+        <Button href="/#work" variant="outline">See how we work</Button>
+        <Button href="/#approach" variant="text">Read our approach</Button>
+        <Button href="/blog/starting-from-zero-ai-search-baseline" variant="text">Read the first case study</Button>
+      </div>
+    </div>
+  </Container>
+</Layout>

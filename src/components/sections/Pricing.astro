@@ -8,12 +8,15 @@ const packages = [
     price: "£395",
     cadence: "one-time · delivered over 2–3 weeks",
     description:
-      "Not a same-week snapshot. Credible measurement means testing the same prompts repeatedly over time, not grabbing one day's answers and calling it a baseline — this is genuine research into where an industry actually stands, not a quick audit.",
+      "Not a one-week snapshot. Credible measurement means testing the same prompts repeatedly over time, not grabbing one day's answers and calling it a baseline - we do genuine research into where your industry actually stands, not a quick audit.",
     features: [
-      "Week 1: industry immersion — who's actually cited in this category, and why",
-      "Repeated prompt testing across ChatGPT, Gemini, and AI Overviews — a dated, evidenced record, not a single check",
-      "Full technical crawlability audit: schema, structured data, JS-rendering issues",
-      "A written strategy document, specific to the research — not a generic checklist",
+      "Week 1: You and your industry - industry immersion - who's actually cited in this category, and why",
+      "Repeated prompt testing across ChatGPT, Gemini, and AI Overviews - a dated, evidenced record, not a single check",
+      "Full technical crawlability audit: schema, structured data, JS-rendering issues, keyword cannibalization",
+      "A *human-written* strategy report, specific to the research - not a generic checklist",
+      "Full keyword audit and report - highlighting missed oppurtunities and what your competitors are getting right",
+      "5 optimised keyword enriched articles, all written by a *human*, never AI - based on keyword research findings",
+      "Helpful insights into blog categorisation, webpage content, and website internal linking structure"
     ],
   },
   {
@@ -21,7 +24,7 @@ const packages = [
     price: "£350",
     cadence: "per month · 3-month minimum",
     description:
-      "AI search visibility moves slowly — compounding signals need time to show. This is continuous, cumulative research and implementation over a real minimum term, not a fixed monthly checklist repeated on a loop.",
+      "AI search visibility moves slowly - compounding signals need time to show. This is continuous, cumulative research and implementation over a real minimum term, not a fixed monthly checklist repeated on a loop.",
     features: [
       "Ongoing prompt tracking, expanded as the industry landscape shifts",
       "Continued technical implementation as issues are found",
@@ -38,7 +41,7 @@ const packages = [
       <h2 class="font-display text-2xl font-semibold text-ink">Pricing</h2>
       <p class="text-sm text-ink-muted mt-3">
         Priced for depth, not speed. Full Shopify builds are scoped
-        individually — <a href="/contact-us" class="underline decoration-gold decoration-2 underline-offset-4 hover:text-gold-deep">get in touch</a>.
+        individually - <a href="/contact-us" class="underline decoration-gold decoration-2 underline-offset-4 hover:text-gold-deep">get in touch</a>.
       </p>
     </div>
     <div class="col-span-12 md:col-span-9 flex flex-col">
@@ -57,7 +60,7 @@ const packages = [
               <p class="text-ink-muted">{pkg.description}</p>
               <ul class="mt-3 flex flex-col gap-1.5 text-sm text-ink-muted">
                 {pkg.features.map((f) => (
-                  <li>— {f}</li>
+                  <li>- {f}</li>
                 ))}
               </ul>
             </div>

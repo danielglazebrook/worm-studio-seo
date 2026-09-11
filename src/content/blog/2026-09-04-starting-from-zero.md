@@ -1,6 +1,6 @@
 ---
 title: "Starting from zero: does ChatGPT know Worm Studio exists?"
-description: "I asked ChatGPT three questions to find out whether an AI search tool knows Worm Studio exists yet. It doesn't — and the results surfaced a problem I didn't expect."
+description: "I asked ChatGPT three questions to find out whether an AI search tool knows Worm Studio exists yet. It doesn't - and the results surfaced a problem I didn't expect."
 pubDate: 2026-09-07
 category: "Case Study"
 draft: false
@@ -47,8 +47,8 @@ It may feel disappointing to others upon seeing these results, and likely a posi
 
 Here's a few things from our competitors that we found interesting:
 
-- Several lean into narrow, specific positioning rather than generic "SEO agency" — Rank4AI describes itself as GEO-first across six AI platforms specifically, not SEO-plus-everything.
-- GEO Intelligence has published pricing starting at £299/month, aimed explicitly at SMEs — a level of transparency a lot of agencies avoid.
+- Several lean into narrow, specific positioning rather than generic "SEO agency" - Rank4AI describes itself as GEO-first across six AI platforms specifically, not SEO-plus-everything.
+- GEO Intelligence has published pricing starting at £299/month, aimed explicitly at SMEs - a level of transparency a lot of agencies avoid.
 - More than one combines GEO with an existing, established SEO/content/digital PR operation rather than treating it as a bolt-on.
 
 These are all key learnings, and more importantly things that will influence our business model and the services we require. Being GEO-first feels like an important service proposition in 2026, with the increased use of AI usage.
