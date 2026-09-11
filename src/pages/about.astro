@@ -1,0 +1,47 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/ui/Container.astro";
+import Button from "@/components/ui/Button.astro";
+---
+
+<Layout
+  title="About"
+  description="What Worm Studio is, and how we work — an SEO, GEO & AEO agency done properly, never automated."
+  path="/about"
+>
+  <Container grid class="pt-20 pb-24">
+    <div class="col-span-12 md:col-span-8">
+      <h1 class="font-display text-4xl md:text-5xl font-semibold text-ink leading-tight">
+        A UK search visibility agency, built to be found — everywhere search happens.
+      </h1>
+    </div>
+
+    <div class="col-span-12 md:col-span-6 mt-8">
+      <p class="text-lg text-ink-muted">
+        Worm Studio exists because search stopped being just Google.
+        People ask AI tools like ChatGPT for recommendations now, and most
+        businesses have no idea whether they even show up there. We help
+        brands get found in both — properly written, properly structured
+        content, not templated shortcuts stuffed for an algorithm.
+      </p>
+
+      <p class="text-lg text-ink-muted mt-6">
+        SEO, GEO, and AEO aren't three separate services here — they're
+        one connected system. The technical work (schema, structure,
+        crawlability) and the writing work both matter, and neither one
+        works well without the other.
+      </p>
+
+      <p class="text-lg text-ink-muted mt-6">
+        Worm Studio is run by Daniel Glazebrook — a full-stack web
+        developer with a design background and over a decade in SEO. The
+        studio is new; the expertise behind it isn't.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-4">
+        <Button href="/daniel-glazebrook" variant="outline">Meet the founder</Button>
+        <Button href="/#approach" variant="text">Read our approach</Button>
+      </div>
+    </div>
+  </Container>
+</Layout>
