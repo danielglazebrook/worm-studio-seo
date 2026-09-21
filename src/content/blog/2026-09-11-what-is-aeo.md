@@ -12,7 +12,7 @@ AEO or Answer Engine Optimisation - is the practice of structuring content so AI
 
 ## Why this is different from ranking #1 on Google
 
-Ranking first in Google search means someone has to click the link, read your content, and find the answer themselves. AEO is about a different, more modern appraoch to search: an AI tool reads the page on someone's behalf and hands them the answer directly, often without a click at all.
+Ranking first in Google search means someone has to click the link, read your content, and find the answer themselves. AEO is about a different, more modern approach to search: an AI tool reads the page on someone's behalf and hands them the answer directly, often without a click at all.
 
 This changes what "success" looks like. A page can be genuinely useful for AEO without ever being the top blue link - what matters is whether the content answers the question clearly enough, and is well enough structured, for an AI model to lift it out and use it with confidence.
 
