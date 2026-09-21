@@ -3,7 +3,7 @@ title: "SEO vs GEO vs AEO: what's actually different"
 description: "SEO, GEO, and AEO overlap but aren't the same thing - SEO targets ranking in a list of links, GEO targets being recommended by an AI model, and AEO targets being the direct answer an AI tool gives."
 pubDate: 2026-09-28
 category: "Fundamentals"
-draft: true
+draft: false
 slug: "seo-vs-geo-vs-aeo"
 author: "Daniel Glazebrook"
 ---

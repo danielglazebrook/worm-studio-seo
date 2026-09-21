@@ -3,7 +3,7 @@ title: "What is GEO? Generative Engine Optimisation explained"
 description: "GEO (Generative Engine Optimisation) is the practice of getting a brand genuinely cited and recommended when people ask AI tools like ChatGPT for suggestions in a given category."
 pubDate: 2026-09-21
 category: "Fundamentals"
-draft: true
+draft: false
 slug: "what-is-geo"
 author: "Daniel Glazebrook"
 ---
