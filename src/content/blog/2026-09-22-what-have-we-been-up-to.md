@@ -1,6 +1,6 @@
 ---
-title: "What Have We Been Up To - September 2026"
-description: "Read about what we have been up to in September at Worm Studio to help improve our SEO position and AI visibility."
+title: "Worm Studio's First Month: New Articles, a Founder Page, and What's Next"
+description: "A first-month recap: three new fundamentals articles, a founder page, and early AI-visibility monitoring at Worm Studio."
 pubDate: 2026-09-22
 category: "Case Study"
 draft: false
