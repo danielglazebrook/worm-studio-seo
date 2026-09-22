@@ -71,4 +71,4 @@ Let's see what we can do in a month with keyword optimised, human-written, authe
 
 For more information about AEO - please read our ['What is AEO?' article](/blog/what-is-aeo).  
 For more information about GEO - please read our ['What is GEO?' article](/blog/what-is-geo).  
-For more information on the differences between SEO, GEO and AEO - please read out ['SEO vs GEO vs AEO' article](/blog/seo-vs-geo-vs-aeo).  
+For more information on the differences between SEO, GEO and AEO - please read our ['SEO vs GEO vs AEO' article](/blog/seo-vs-geo-vs-aeo).  

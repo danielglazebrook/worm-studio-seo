@@ -41,4 +41,4 @@ GEO isn't about gaming an algorithm or tricking a model into a false recommendat
 
 For more information about our own SEO journey as a new SEO agency - please read our ['Starting from zero' article](/blog/starting-from-zero-ai-search-baseline).  
 For more information about AEO - please read our ['What is AEO?' article](/blog/what-is-aeo).  
-For more information on the differences between SEO, GEO and AEO - please read out ['SEO vs GEO vs AEO' article](/blog/seo-vs-geo-vs-aeo).  
+For more information on the differences between SEO, GEO and AEO - please read our ['SEO vs GEO vs AEO' article](/blog/seo-vs-geo-vs-aeo).  

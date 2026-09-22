@@ -39,4 +39,4 @@ AEO is a genuinely new and fast-moving area. Best practices that work well today
 
 For more information about our own SEO journey as a new SEO agency - please read our ['Starting from zero' article](/blog/starting-from-zero-ai-search-baseline).  
 For more information about GEO - please read our ['What is GEO?' article](/blog/what-is-geo).  
-For more information on the differences between SEO, GEO and AEO - please read out ['SEO vs GEO vs AEO' article](/blog/seo-vs-geo-vs-aeo).  
+For more information on the differences between SEO, GEO and AEO - please read our ['SEO vs GEO vs AEO' article](/blog/seo-vs-geo-vs-aeo).  
