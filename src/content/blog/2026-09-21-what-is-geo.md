@@ -38,3 +38,7 @@ This is a young discipline - most businesses haven't started thinking about it y
 ## What this doesn't mean
 
 GEO isn't about gaming an algorithm or tricking a model into a false recommendation. The brands that do well here tend to be the ones with genuinely good, well-structured content - the optimisation makes that content easier to find and trust, it doesn't manufacture credibility that isn't there.
+
+For more information about our own SEO journey as a new SEO agency - please read our ['Starting from zero' article](/blog/starting-from-zero-ai-search-baseline).
+For more information about AEO - please read our ['What is AEO?' article](/blog/what-is-aeo).
+For more information on the differences between SEO, GEO and AEO - please read out ['SEO vs GEO vs AEO' article](/blog/seo-vs-geo-vs-aeo)
