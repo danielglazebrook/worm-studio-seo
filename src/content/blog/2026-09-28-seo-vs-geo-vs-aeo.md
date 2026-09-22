@@ -40,6 +40,6 @@ That last point is uncomfortable for a lot of businesses: AEO success can mean g
 
 Not necessarily all at once, and not with equal effort. A local service business might care most about GEO (being recommended). A business selling something people research heavily might care most about AEO (answering their questions well). Most businesses benefit from all three working together rather than picking just one - but understanding which one actually matters most for a specific business is a better starting point than trying to do everything equally from day one.
 
-For more information about our own SEO journey as a new SEO agency - please read our ['Starting from zero' article](/blog/starting-from-zero-ai-search-baseline).
-For more information about AEO - please read our ['What is AEO?' article](/blog/what-is-aeo).
-For more information about GEO - please read our ['What is GEO?' article](/blog/what-is-geo).
+For more information about our own SEO journey as a new SEO agency - please read our ['Starting from zero' article](/blog/starting-from-zero-ai-search-baseline).  
+For more information about AEO - please read our ['What is AEO?' article](/blog/what-is-aeo).  
+For more information about GEO - please read our ['What is GEO?' article](/blog/what-is-geo).  
