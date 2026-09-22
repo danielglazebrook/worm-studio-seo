@@ -4,7 +4,7 @@ description: "Read about what we have been up to in September at Worm Studio to 
 pubDate: 2026-09-22
 category: "Case Study"
 draft: false
-slug: "worm-studio-september-2026-update"
+slug: "september-2026-update"
 author: "Daniel Glazebrook"
 ---
 
