@@ -28,6 +28,6 @@ We continue to monitor Worm Studio's SEO and AI visibility each day - unsurprisi
 
 We will be publishing our 'First 30 days' article soon with reports and statistics detailing how the work and experimentation above has been performing.
 
-For more information about our own SEO journey as a new SEO agency - please read our ['Starting from zero' article](/blog/starting-from-zero-ai-search-baseline).  
+For more information about GEO - please read our ['What is GEO?' article](/blog/what-is-geo).  
 For more information about AEO - please read our ['What is AEO?' article](/blog/what-is-aeo).  
 For more information on the differences between SEO, GEO and AEO - please read our ['SEO vs GEO vs AEO' article](/blog/seo-vs-geo-vs-aeo).  
