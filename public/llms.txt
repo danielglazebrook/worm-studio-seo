@@ -5,6 +5,6 @@
 Based in Northampton, England. Services: technical SEO, Generative Engine Optimisation (GEO), Answer Engine Optimisation (AEO), content writing, and Shopify development (official Shopify Partner).
 
 ## Pages
-- [Home](https://wormstudio.co.uk/)
-- [Blog](https://wormstudio.co.uk/blog)
-- [Contact](https://wormstudio.co.uk/contact-us)
+- [Home](https://www.wormstudio.co.uk/)
+- [Blog](https://www.wormstudio.co.uk/blog)
+- [Contact](https://www.wormstudio.co.uk/contact-us)

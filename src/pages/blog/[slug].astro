@@ -11,7 +11,7 @@ export async function getStaticPaths() {
 interface Props { post: CollectionEntry<"blog"> }
 const { post } = Astro.props;
 const { Content } = await post.render();
-const SITE_URL = "https://wormstudio.co.uk";
+const SITE_URL = "https://www.wormstudio.co.uk";
 
 const articleSchema = {
   "@context": "https://schema.org",
