@@ -1,0 +1,247 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/ui/Container.astro";
+import Button from "@/components/ui/Button.astro";
+import Faq from "@/components/sections/Faq.astro";
+import { packages, researchPackage, partnershipPackage } from "@/data/pricing";
+
+const SITE_URL = "https://www.wormstudio.co.uk";
+const PAGE_PATH = "/pricing";
+
+const linkClass =
+  "text-ink underline decoration-gold decoration-2 underline-offset-4 hover:text-gold-deep";
+
+const faqs = [
+  {
+    question: "How much does GEO cost in the UK?",
+    answer: `Our GEO, AEO and SEO work starts at ${researchPackage.price} for a one-off research package, or ${partnershipPackage.price} a month for ongoing work. Prices across UK agencies vary widely, so it's worth comparing what each package includes, not just the headline figure.`,
+    link: { href: "/geo-aeo-services", text: "See what GEO and AEO involve" },
+  },
+  {
+    question: "How much does SEO cost?",
+    answer: `We don't price SEO separately. Technical SEO, keyword research and content are part of both packages alongside the GEO and AEO work, because we treat them as one system. That's ${researchPackage.price} one-off for the research package, or ${partnershipPackage.price} a month for the ongoing partnership.`,
+  },
+  {
+    question: "What's included in the research package?",
+    answer: `A two to three week research engagement: industry immersion, repeated prompt testing across ChatGPT, Gemini and Google AI Overviews, a technical crawlability audit, a written strategy report, a full keyword audit, five articles written from the findings, and recommendations on blog categories, page content and internal linking. It costs ${researchPackage.price}.`,
+  },
+  {
+    question: "What's the difference between the two packages?",
+    answer:
+      "The research package is a one-off piece of work that shows where you stand and what to fix. The ongoing partnership is continuous: prompt tracking, technical implementation, a piece of GEO and AEO content each month, and a quarterly look at the competitive landscape.",
+  },
+  {
+    question: "Is there a minimum contract?",
+    answer:
+      "The research package is a one-off, so there's no ongoing commitment. The ongoing partnership has a three-month minimum, because AI search visibility moves slowly and a single month rarely shows anything worth reporting.",
+  },
+  {
+    question: "Who writes the articles?",
+    answer:
+      "A person. Each article is written from the keyword research findings, not generated and templated.",
+  },
+  {
+    question: "How much does a Shopify build cost?",
+    answer:
+      "Full Shopify design and build projects are scoped individually, because the cost depends on the number of products, the features and any integrations. Get in touch with what you're planning and we'll talk it through.",
+    link: { href: "/contact-us", text: "Get in touch" },
+  },
+];
+
+const orgId = `${SITE_URL}/#organization`;
+
+const catalogSchema = {
+  "@context": "https://schema.org",
+  "@type": "OfferCatalog",
+  name: "Worm Studio GEO, AEO and SEO pricing",
+  url: `${SITE_URL}${PAGE_PATH}`,
+  itemListElement: packages.map((pkg) => ({
+    "@type": "Offer",
+    name: pkg.name,
+    description: pkg.description,
+    url: `${SITE_URL}${PAGE_PATH}#${pkg.id}`,
+    priceCurrency: "GBP",
+    seller: { "@id": orgId },
+    ...(pkg.billing === "monthly"
+      ? {
+          priceSpecification: {
+            "@type": "UnitPriceSpecification",
+            price: String(pkg.amount),
+            priceCurrency: "GBP",
+            unitText: "MONTH",
+          },
+        }
+      : { price: String(pkg.amount) }),
+    itemOffered: {
+      "@type": "Service",
+      name: pkg.name,
+      provider: { "@id": orgId },
+    },
+  })),
+};
+---
+
+<Layout
+  title="Pricing for GEO, AEO & SEO Services"
+  description={`Fixed UK pricing for GEO, AEO and SEO: a ${researchPackage.price} one-off research package and a ${partnershipPackage.price} a month ongoing partnership with a three-month minimum.`}
+  path={PAGE_PATH}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(catalogSchema)} />
+
+  <Container grid class="pt-20 pb-24">
+    <div class="col-span-12 md:col-span-8">
+      <h1 class="font-display text-4xl md:text-5xl font-semibold text-ink leading-tight">
+        What our GEO, AEO and SEO work costs
+      </h1>
+    </div>
+    <div class="col-span-12 md:col-span-6 mt-8">
+      <p class="text-lg text-ink-muted">
+        We have two packages with fixed, published prices: a one-off research
+        package at {researchPackage.price}, delivered over two to three weeks,
+        and an ongoing partnership at {partnershipPackage.price} a month with
+        a three-month minimum. Full Shopify builds are scoped individually.
+      </p>
+      <p class="text-lg text-ink-muted mt-6">
+        We publish prices so you don't need a call to find out whether we're
+        in range. Both packages are priced for depth rather than speed: the
+        research takes weeks because testing AI search properly takes weeks.
+      </p>
+      <div class="flex flex-wrap gap-4 mt-8">
+        <Button href="/contact-us" variant="solid">Get in touch</Button>
+        <Button href="/geo-aeo-services" variant="text">What GEO and AEO involve</Button>
+      </div>
+    </div>
+  </Container>
+
+  <section id="packages" class="py-16 md:py-24 border-t border-line">
+    <Container grid>
+      <div class="col-span-12 md:col-span-3">
+        <h2 class="font-display text-2xl font-semibold text-ink">The packages</h2>
+      </div>
+      <div class="col-span-12 md:col-span-9 flex flex-col">
+        {
+          packages.map((pkg) => (
+            <article
+              id={pkg.id}
+              class="scroll-mt-24 grid grid-cols-1 md:grid-cols-12 gap-x-6 py-10 border-b border-line first:pt-0"
+            >
+              <div class="md:col-span-3">
+                <h3 class="font-display text-xl font-medium text-ink">{pkg.name}</h3>
+                <p class="text-ink-muted mt-1">
+                  <span class="text-2xl font-display text-ink">{pkg.price}</span>
+                  <br />
+                  <span class="text-xs">{pkg.cadence}</span>
+                </p>
+              </div>
+              <div class="md:col-span-6 mt-4 md:mt-0">
+                <p class="text-ink-muted">{pkg.description}</p>
+                <p class="text-sm font-medium text-ink mt-6">What's included</p>
+                <ul class="mt-2 flex flex-col gap-1.5 text-sm text-ink-muted">
+                  {pkg.features.map((f) => (
+                    <li>- {f}</li>
+                  ))}
+                </ul>
+                <p class="text-sm font-medium text-ink mt-6">Best for</p>
+                <p class="text-sm text-ink-muted mt-2">{pkg.bestFor}</p>
+              </div>
+              <div class="md:col-span-3 mt-4 md:mt-0 md:text-right">
+                <Button href="/contact-us" variant="text">Get started</Button>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </Container>
+  </section>
+
+  <section id="how-they-fit" class="py-16 md:py-24 border-t border-line">
+    <Container grid>
+      <div class="col-span-12 md:col-span-3">
+        <h2 class="font-display text-2xl font-semibold text-ink">How the two fit together</h2>
+      </div>
+      <div class="col-span-12 md:col-span-9 max-w-prose">
+        <p class="text-ink-muted">
+          The research package is a one-off and stands on its own: you get the
+          findings, the strategy report and the articles, with no obligation
+          to continue.
+        </p>
+        <p class="text-ink-muted mt-4">
+          If you want us to carry the work through, the ongoing partnership
+          builds on that research. It keeps tracking against the same
+          baseline, continues the technical implementation, and adds a piece
+          of content each month.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <section id="how-we-price" class="py-16 md:py-24 border-t border-line">
+    <Container grid>
+      <div class="col-span-12 md:col-span-3">
+        <h2 class="font-display text-2xl font-semibold text-ink">How we price</h2>
+      </div>
+      <div class="col-span-12 md:col-span-9">
+        <dl class="flex flex-col">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-x-6 py-6 border-b border-line first:pt-0">
+            <dt class="md:col-span-4 font-display text-lg font-medium text-ink">Fixed prices</dt>
+            <dd class="md:col-span-8 text-ink-muted mt-2 md:mt-0">
+              Both packages are set prices with no hidden costs, published
+              here so you can compare before you get in touch.
+            </dd>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-x-6 py-6 border-b border-line">
+            <dt class="md:col-span-4 font-display text-lg font-medium text-ink">Priced for depth</dt>
+            <dd class="md:col-span-8 text-ink-muted mt-2 md:mt-0">
+              The research takes two to three weeks because testing AI search
+              properly means repeating the same prompts over time. A one-day
+              snapshot is quicker to produce, but it can't tell you much.
+            </dd>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-x-6 py-6 border-b border-line">
+            <dt class="md:col-span-4 font-display text-lg font-medium text-ink">Honest reporting</dt>
+            <dd class="md:col-span-8 text-ink-muted mt-2 md:mt-0">
+              We report what moved, including when nothing did. We do the
+              same on our own site, in public:
+              <a href="/blog/starting-from-zero-ai-search-baseline" class={linkClass}>Starting from zero</a>.
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </Container>
+  </section>
+
+  <section id="shopify" class="py-16 md:py-24 border-t border-line">
+    <Container grid>
+      <div class="col-span-12 md:col-span-3">
+        <h2 class="font-display text-2xl font-semibold text-ink">Shopify builds</h2>
+      </div>
+      <div class="col-span-12 md:col-span-9 max-w-prose">
+        <p class="text-ink-muted">
+          Full Shopify design and build projects are scoped individually,
+          because the cost depends on the number of products, the features
+          and any integrations. Tell us what you're planning and we'll talk
+          it through: <a href="/contact-us" class={linkClass}>get in touch</a>.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <Faq items={faqs} heading="Pricing questions" />
+
+  <section class="py-16 md:py-24 border-t border-line">
+    <Container grid>
+      <div class="col-span-12 md:col-span-8">
+        <h2 class="font-display text-3xl font-semibold text-ink">
+          Not sure which package fits?
+        </h2>
+        <p class="text-lg text-ink-muted mt-4 max-w-prose">
+          Tell us what you do and who your customers are, and we'll say which
+          one makes sense, or whether it's worth doing yet.
+        </p>
+        <div class="mt-8">
+          <Button href="/contact-us" variant="solid">Get in touch</Button>
+        </div>
+      </div>
+    </Container>
+  </section>
+</Layout>

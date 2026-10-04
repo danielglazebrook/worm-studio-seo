@@ -1,0 +1,378 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Container from "@/components/ui/Container.astro";
+import Button from "@/components/ui/Button.astro";
+import Faq from "@/components/sections/Faq.astro";
+import { researchPackage, partnershipPackage } from "@/data/pricing";
+
+const SITE_URL = "https://www.wormstudio.co.uk";
+const PAGE_PATH = "/geo-aeo-services";
+
+const linkClass =
+  "text-ink underline decoration-gold decoration-2 underline-offset-4 hover:text-gold-deep";
+
+const deliverables = [
+  {
+    name: "AI visibility research",
+    description:
+      "We test 15 to 20 real prompts (brand, category and comparison questions) in ChatGPT, Gemini and Google AI Overviews, more than once over two to three weeks, and keep a dated record of what each one says.",
+  },
+  {
+    name: "Industry and competitor mapping",
+    description:
+      "Who gets cited in your category, which pages they're cited from, and what those pages have in common. That includes directories, comparison sites and publications, because AI tools often draw on them rather than on the agencies themselves.",
+  },
+  {
+    name: "Technical crawlability audit",
+    description:
+      "Whether AI crawlers can actually read your site: robots.txt rules for AI bots, content that only appears once JavaScript runs, sitemap health, and canonical and redirect consistency.",
+  },
+  {
+    name: "Structured data",
+    description:
+      "Organization, Person, Service, FAQPage and Article schema, written to match what's on the page, so a model gets one consistent description of who you are and what you do.",
+  },
+  {
+    name: "Entity clarity",
+    description:
+      "Making your business name, description and details match across your site, Google Business Profile and other listings. If another business shares your name, we make sure AI tools have enough to tell you apart. We ran into exactly that on our own site.",
+  },
+  {
+    name: "Content built to be quoted",
+    description:
+      "Direct-answer openings, headings written as the questions people actually ask, and specific facts instead of generalities. Written and edited by people, not generated and templated.",
+  },
+  {
+    name: "Monitoring and reporting",
+    description:
+      "Prompt tracking repeated through the engagement, plus Search Console and rank tracking for the Google side, reported in plain English.",
+  },
+];
+
+const steps = [
+  {
+    title: "Research",
+    timing: "Weeks 1 to 3",
+    description:
+      "Industry immersion and repeated prompt testing, so we know what AI tools say about your category before anything is changed.",
+  },
+  {
+    title: "Strategy",
+    timing: "End of week 3",
+    description:
+      "A written strategy document specific to your research, with fixes in priority order rather than a generic checklist.",
+  },
+  {
+    title: "Implementation",
+    timing: "Ongoing",
+    description:
+      "Technical fixes, structured data and content, built and shipped, not just recommended.",
+  },
+  {
+    title: "Monitoring",
+    timing: "Ongoing",
+    description:
+      "Tracking against the original baseline, with a deeper look at the competitive landscape each quarter.",
+  },
+];
+
+const measures = [
+  "Whether your brand is mentioned, and where, across a fixed set of prompts",
+  "Which sources the AI tools cite, and whether yours is one of them",
+  "Which competitors appear instead, and from which pages",
+  "Whether searches for your own name return accurate information about you",
+  "Impressions, clicks, average position and keyword rankings on the Google side",
+];
+
+const faqs = [
+  {
+    question: "What is GEO?",
+    answer:
+      "GEO, or Generative Engine Optimisation, is the work of making your business easy for AI search tools to find, understand and recommend when someone asks them a question, such as which agency, product or service to choose.",
+    link: { href: "/blog/what-is-geo", text: "Read more about GEO" },
+  },
+  {
+    question: "What is AEO?",
+    answer:
+      "AEO, or Answer Engine Optimisation, is structuring your content so AI tools and search engines can lift a clear, correct answer straight from your page. Where GEO aims to get your business recommended, AEO aims to get your content used as the answer.",
+    link: { href: "/blog/what-is-aeo", text: "Read more about AEO" },
+  },
+  {
+    question: "How are GEO and AEO different from SEO?",
+    answer:
+      "SEO aims to rank your pages in a list of results. GEO aims to get your business named in an AI-generated recommendation. AEO aims to get your content used as the direct answer. They share the same foundations, a technically sound site and clear, specific content, so we treat them as one system.",
+    link: { href: "/blog/seo-vs-geo-vs-aeo", text: "Read the full comparison" },
+  },
+  {
+    question: "Can you guarantee ChatGPT will recommend my business?",
+    answer:
+      "No, and nobody honestly can. AI tools choose their own sources and their answers change between runs. We commit to the work described on this page, the research, fixes and reporting, and we report honestly on what moves, including when nothing does.",
+  },
+  {
+    question: "How long does GEO take to show results?",
+    answer:
+      "Technical fixes and accurate answers to searches for your own name can show up within weeks. Being recommended for broader questions, like which agency to hire in your category, usually takes months and depends on how crowded that category is. On our own site, searches for our name were returning correct information within 30 days, while category recommendations have not arrived yet.",
+  },
+  {
+    question: "Which AI tools do you track?",
+    answer:
+      "ChatGPT, Gemini and Google AI Overviews, plus other AI search tools where your customers are likely to be using them. Which ones matter most depends on your audience, so we check that first.",
+  },
+  {
+    question: "How much do your GEO and AEO services cost?",
+    answer: `The one-off research and strategy package is ${researchPackage.price} and takes two to three weeks. It includes a keyword audit and five articles written from the findings. Ongoing work is ${partnershipPackage.price} a month with a three-month minimum.`,
+    link: { href: "/pricing", text: "See the pricing breakdown" },
+  },
+  {
+    question: "Do you work with businesses outside Northampton, or in my industry?",
+    answer:
+      "Yes. We're based in Northampton and work with UK businesses in any industry. We start by researching your category, so we learn what AI tools say about your sector before changing anything.",
+  },
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${SITE_URL}${PAGE_PATH}#service`,
+  name: "GEO and AEO services",
+  serviceType: "Generative Engine Optimisation and Answer Engine Optimisation",
+  description:
+    "Research, technical fixes, structured data and content that help UK businesses get found, cited and recommended by AI search tools such as ChatGPT, Gemini and Google AI Overviews.",
+  url: `${SITE_URL}${PAGE_PATH}`,
+  provider: { "@id": `${SITE_URL}/#organization` },
+  areaServed: { "@type": "Country", name: "United Kingdom" },
+  offers: [
+    {
+      "@type": "Offer",
+      name: researchPackage.name,
+      price: String(researchPackage.amount),
+      priceCurrency: "GBP",
+      url: `${SITE_URL}/pricing#${researchPackage.id}`,
+    },
+    {
+      "@type": "Offer",
+      name: partnershipPackage.name,
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        price: String(partnershipPackage.amount),
+        priceCurrency: "GBP",
+        unitText: "MONTH",
+      },
+      url: `${SITE_URL}/pricing#${partnershipPackage.id}`,
+    },
+  ],
+};
+---
+
+<Layout
+  title="GEO & AEO Services for UK Businesses"
+  description="GEO and AEO services for UK businesses: research, structured data and content so ChatGPT, Gemini and Google AI Overviews can find, cite and recommend you."
+  path={PAGE_PATH}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+  <Container grid class="pt-20 pb-24">
+    <div class="col-span-12 md:col-span-8">
+      <h1 class="font-display text-4xl md:text-5xl font-semibold text-ink leading-tight">
+        GEO and AEO services for UK businesses
+      </h1>
+    </div>
+    <div class="col-span-12 md:col-span-6 mt-8">
+      <p class="text-lg text-ink-muted">
+        GEO (Generative Engine Optimisation) and AEO (Answer Engine
+        Optimisation) make sure AI search tools such as ChatGPT, Gemini and
+        Google AI Overviews can find your business, understand what you do,
+        and cite or recommend you when someone asks a relevant question. We
+        do it through research, technical fixes, structured data and content
+        written to be quoted.
+      </p>
+      <p class="text-lg text-ink-muted mt-6">
+        We can't promise a recommendation, and nobody honestly can. What we
+        can do is find out where you stand today, fix what stops AI tools
+        reading and trusting your site, and measure what changes.
+      </p>
+      <div class="flex flex-wrap gap-4 mt-8">
+        <Button href="/pricing" variant="solid">See pricing</Button>
+        <Button href="/contact-us" variant="outline">Get in touch</Button>
+      </div>
+    </div>
+  </Container>
+
+  <section id="what-it-is" class="py-16 md:py-24 border-t border-line">
+    <Container grid>
+      <div class="col-span-12 md:col-span-3">
+        <h2 class="font-display text-2xl font-semibold text-ink">GEO and AEO, briefly</h2>
+      </div>
+      <div class="col-span-12 md:col-span-9 max-w-prose">
+        <p class="text-ink-muted">
+          GEO is about being named. When someone asks an AI tool which agency,
+          product or service to choose, GEO is the work of making sure your
+          business is one of the answers.
+        </p>
+        <p class="text-ink-muted mt-4">
+          AEO is about being the answer. It structures your content so a
+          tool can lift a clear, correct reply straight from your page.
+        </p>
+        <p class="text-ink-muted mt-4">
+          Both sit on top of ordinary SEO, and we treat the three as one
+          system. For the longer explanation, start with
+          <a href="/blog/what-is-geo" class={linkClass}>What is GEO?</a>,
+          <a href="/blog/what-is-aeo" class={linkClass}>What is AEO?</a> or
+          <a href="/blog/seo-vs-geo-vs-aeo" class={linkClass}>SEO vs GEO vs AEO</a>.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <section id="included" class="py-16 md:py-24 border-t border-line">
+    <Container grid>
+      <div class="col-span-12 md:col-span-3">
+        <h2 class="font-display text-2xl font-semibold text-ink">What's included</h2>
+      </div>
+      <div class="col-span-12 md:col-span-9">
+        <dl class="flex flex-col">
+          {
+            deliverables.map((item) => (
+              <div class="grid grid-cols-1 md:grid-cols-12 gap-x-6 py-6 border-b border-line first:pt-0">
+                <dt class="md:col-span-4 font-display text-lg font-medium text-ink">
+                  {item.name}
+                </dt>
+                <dd class="md:col-span-8 text-ink-muted mt-2 md:mt-0">
+                  {item.description}
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </Container>
+  </section>
+
+  <section id="how-it-works" class="py-16 md:py-24 border-t border-line">
+    <Container grid>
+      <div class="col-span-12 md:col-span-3">
+        <h2 class="font-display text-2xl font-semibold text-ink">How it works</h2>
+      </div>
+      <div class="col-span-12 md:col-span-9">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
+          {
+            steps.map((step, i) => (
+              <div>
+                <span class="font-display text-4xl text-gold">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 class="font-display text-lg font-medium text-ink mt-2">{step.title}</h3>
+                <p class="text-sm text-ink-muted mt-1">{step.timing}</p>
+                <p class="text-ink-muted mt-3">{step.description}</p>
+              </div>
+            ))
+          }
+        </div>
+        <p class="text-ink-muted mt-10 max-w-prose">
+          The one-off research package covers steps 1 and 2, plus five
+          articles written from the findings. The ongoing partnership covers
+          steps 3 and 4.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <section id="measurement" class="py-16 md:py-24 border-t border-line">
+    <Container grid>
+      <div class="col-span-12 md:col-span-3">
+        <h2 class="font-display text-2xl font-semibold text-ink">What we measure</h2>
+      </div>
+      <div class="col-span-12 md:col-span-9 max-w-prose">
+        <ul class="flex flex-col gap-2 text-ink-muted">
+          {measures.map((m) => <li>- {m}</li>)}
+        </ul>
+        <p class="text-ink-muted mt-6">
+          AI answers vary between runs and between users, so we report
+          patterns across repeated tests, never a single screenshot.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <section id="who-for" class="py-16 md:py-24 border-t border-line">
+    <Container grid>
+      <div class="col-span-12 md:col-span-3">
+        <h2 class="font-display text-2xl font-semibold text-ink">Who it's for</h2>
+      </div>
+      <div class="col-span-12 md:col-span-9 max-w-prose">
+        <p class="text-ink-muted">
+          UK businesses whose customers research before they buy, in any
+          industry: services, B2B, local and online. If your customers might
+          ask an AI tool for a recommendation, or already do, this is worth
+          looking at.
+        </p>
+        <p class="text-ink-muted mt-4">
+          It's not a fit if you need a guaranteed ranking by next month, or
+          if you want templated content produced at volume.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <section id="our-own-results" class="py-16 md:py-24 border-t border-line">
+    <Container grid>
+      <div class="col-span-12 md:col-span-3">
+        <h2 class="font-display text-2xl font-semibold text-ink">We run this on ourselves</h2>
+      </div>
+      <div class="col-span-12 md:col-span-9 max-w-prose">
+        <p class="text-ink-muted">
+          Before offering this to anyone else, we published our own baseline.
+          In September 2026 ChatGPT didn't know Worm Studio existed, and
+          three unrelated businesses with similar names came up instead.
+          We re-ran the same tests 30 days later: searches for our name now
+          return correct information, and we're still not recommended for
+          agency queries. We say so openly.
+        </p>
+        <p class="text-ink-muted mt-4">
+          The full write-up is in
+          <a href="/blog/starting-from-zero-ai-search-baseline" class={linkClass}>Starting from zero</a>.
+          {/* Add a link to the "First 30 days" post here once it's published */}
+          The work is led by
+          <a href="/daniel-glazebrook" class={linkClass}>Daniel Glazebrook</a>,
+          who has worked in SEO since 2012.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <section id="pricing" class="scroll-mt-24 py-16 md:py-24 border-t border-line">
+    <Container grid>
+      <div class="col-span-12 md:col-span-3">
+        <h2 class="font-display text-2xl font-semibold text-ink">Cost</h2>
+      </div>
+      <div class="col-span-12 md:col-span-9 max-w-prose">
+        <p class="text-ink-muted">
+          The one-off research and strategy package is {researchPackage.price}
+          and takes two to three weeks. Ongoing work is
+          {partnershipPackage.price} a month with a three-month minimum. The
+          full breakdown is on the
+          <a href="/pricing" class={linkClass}>pricing page</a>.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <Faq items={faqs} heading="Questions about GEO and AEO" />
+
+  <section class="py-16 md:py-24 border-t border-line">
+    <Container grid>
+      <div class="col-span-12 md:col-span-8">
+        <h2 class="font-display text-3xl font-semibold text-ink">
+          Find out where you stand in AI search
+        </h2>
+        <p class="text-lg text-ink-muted mt-4 max-w-prose">
+          Tell us what you do and who your customers are, and we'll say
+          whether this is worth doing for you now.
+        </p>
+        <div class="mt-8">
+          <Button href="/contact-us" variant="solid">Get in touch</Button>
+        </div>
+      </div>
+    </Container>
+  </section>
+</Layout>

@@ -1,0 +1,63 @@
+---
+import Container from "@/components/ui/Container.astro";
+
+export interface FaqItem {
+  question: string;
+  answer: string; // plain text only: this exact string is used in the schema too
+  link?: { href: string; text: string };
+}
+
+interface Props {
+  items: FaqItem[];
+  heading?: string;
+  id?: string;
+}
+
+const { items, heading = "Questions", id = "faq" } = Astro.props;
+
+// FAQPage schema is generated from the same items that are rendered below,
+// so the markup always matches the visible text (a Google requirement).
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: items.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+};
+---
+
+<section id={id} class="scroll-mt-24 py-16 md:py-24 border-t border-line">
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <Container grid>
+    <div class="col-span-12 md:col-span-3">
+      <h2 class="font-display text-2xl font-semibold text-ink">{heading}</h2>
+    </div>
+    <div class="col-span-12 md:col-span-9 flex flex-col">
+      {
+        items.map((item) => (
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-x-6 py-6 border-b border-line first:pt-0">
+            <h3 class="md:col-span-5 font-display text-lg font-medium text-ink">
+              {item.question}
+            </h3>
+            <p class="md:col-span-7 text-ink-muted mt-2 md:mt-0">
+              {item.answer}
+              {item.link && (
+                <>
+                  {" "}
+                  <a
+                    href={item.link.href}
+                    class="text-ink underline decoration-gold decoration-2 underline-offset-4 hover:text-gold-deep"
+                  >
+                    {item.link.text}
+                  </a>
+                </>
+              )}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </Container>
+</section>
