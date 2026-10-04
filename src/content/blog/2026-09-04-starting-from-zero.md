@@ -69,6 +69,8 @@ As of right now, our business is at the bottom of the heap - in a few weeks it w
 
 Let's see what we can do in a month with keyword optimised, human-written, authentic, knowledgable articles. We're excited for October's results.
 
+For the results of our visibility improvements in the first 30 days please read our ['Worm Studio's First 30 Days' article](/blog/first-30-days)
+
 For more information about AEO - please read our ['What is AEO?' article](/blog/what-is-aeo).  
 For more information about GEO - please read our ['What is GEO?' article](/blog/what-is-geo).  
 For more information on the differences between SEO, GEO and AEO - please read our ['SEO vs GEO vs AEO' article](/blog/seo-vs-geo-vs-aeo).  
